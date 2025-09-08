@@ -2,6 +2,8 @@
 
 Nanograph is a tiny application for manually plotting graphs or tracking system stats.
 
+![nanograph preview](assets/nanograph-preview-img.png)
+
 ## Installation
 
 Download the available versions or build the application yourself using the instructions below:
