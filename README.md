@@ -1,10 +1,10 @@
-# Nanograph
+# nanograph
 
 Nanograph is a tiny application for manually plotting graphs or tracking system stats.
 
 ## Installation
 
-Download the available versions or build the application yourself using the instructions below.
+Download the available versions or build the application yourself using the instructions below:
 
 ### 1. Install dependencies
 
@@ -24,4 +24,4 @@ pip3 install pyinstaller
 pyinstaller server.spec
 ```
 
-Locate the executable file for your OS in the `dist` directory and you're good to go.
+Locate the executable file for your OS in the `dist` directory and you're good to go!
