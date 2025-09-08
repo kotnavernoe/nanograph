@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanograph</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>nanograph</h1>
+    <div class="mode-selector">
+        <button id="auto-mode-btn" class="mode-btn">automatic</button>
+        <button id="manual-mode-btn" class="mode-btn active">manual</button>
+    </div>
+    <div id="manual-controls" class="controls-top">
+        <input type="number" id="value-input" placeholder="enter an integer value">
+        <button id="add-btn">add value</button>
+        <button id="undo-btn">undo</button>
+    </div>
+    <div id="auto-controls" class="controls-top" style="display: none;">
+        <div id="stat-picker-dropdown" class="custom-dropdown">
+            <button id="stat-picker-btn" class="custom-dropdown-btn">cpu usage (%)</button>
+            <div id="stat-picker-content" class="custom-dropdown-content">
+                <div class="custom-dropdown-group">CPU</div>
+                <a href="#" data-value="cpu_percent">CPU Usage (%)</a>
+                <a href="#" data-value="cpu_temp_c">CPU Temp (°C)</a>
+                <div class="custom-dropdown-group">Memory</div>
+                <a href="#" data-value="ram_used_mb">RAM Usage (MB)</a>
+                <a href="#" data-value="ram_percent">RAM Usage (%)</a>
+                <a href="#" data-value="swap_percent">Swap Usage (%)</a>
+                <a href="#" data-value="process_ram_mb">Process RAM (MB)</a>
+                <div class="custom-dropdown-group">Disk</div>
+                <a href="#" data-value="disk_used_gb">Disk Usage (GB)</a>
+                <a href="#" data-value="disk_percent">Disk Usage (%)</a>
+                <a href="#" data-value="disk_read_mbs">Disk Read (MB/s)</a>
+                <a href="#" data-value="disk_write_mbs">Disk Write (MB/s)</a>
+                <div class="custom-dropdown-group">Network</div>
+                <a href="#" data-value="net_sent_kbs">Network Sent (KB/s)</a>
+                <a href="#" data-value="net_recv_kbs">Network Received (KB/s)</a>
+                <a href="#" data-value="ping_latency_ms">Ping Latency (ms)</a>
+                <div class="custom-dropdown-group">Power</div>
+                <a href="#" data-value="battery_percent">Battery (%)</a>
+            </div>
+        </div>
+        <input type="text" id="ping-host-input" placeholder="e.g., google.com" style="display: none;">
+        <input type="number" id="pid-input" placeholder="enter pid" style="display: none;">
+        <div class="checkbox-wrapper" id="include-children-wrapper" style="display: none;">
+            <input type="checkbox" id="include-children-checkbox">
+            <label for="include-children-checkbox">include children</label>
+        </div>
+        <div id="interval-picker-dropdown" class="custom-dropdown">
+            <button id="interval-picker-btn" class="custom-dropdown-btn">every 1 second</button>
+            <div id="interval-picker-content" class="custom-dropdown-content">
+                <a href="#" data-value="200">Every 0.2 seconds</a>
+                <a href="#" data-value="1000">Every 1 second</a>
+                <a href="#" data-value="5000">Every 5 seconds</a>
+                <a href="#" data-value="15000">Every 15 seconds</a>
+                <a href="#" data-value="60000">Every minute</a>
+                <a href="#" data-value="3600000">Every hour</a>
+            </div>
+        </div>
+        <button id="start-tracking-btn">start tracking</button>
+        <button id="stop-tracking-btn" style="display: none;">stop tracking</button>
+    </div>
+    <canvas id="graph-canvas"></canvas>
+    <div class="controls-bottom">
+        <button id="restart-btn">reset graph</button>
+        <div class="dropdown">
+            <button id="export-btn" class="dropdown-btn">export</button>
+            <div id="export-dropdown" class="dropdown-content">
+                <a href="#" id="export-png-btn">.png</a>
+                <a href="#" id="export-csv-btn">.csv</a>
+                <a href="#" id="export-json-btn">.json</a>
+            </div>
+        </div>
+        <div class="color-picker-wrapper" title="Change graph color">
+            <input type="color" id="color-picker" value="#28a745">
+            <div id="color-picker-preview"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
