@@ -33,7 +33,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='icon-windows.ico' if platform.system() == 'Windows' else None,
+    icon='assets/icon-windows.ico' if platform.system() == 'Windows' else None,
 )
 coll = COLLECT(
     exe,
@@ -55,7 +55,7 @@ if platform.system() == 'Darwin':
     app = BUNDLE(
         coll,
         name='Nanograph.app',
-        icon='icon-mac.icns',
+        icon='assets/icon-mac.icns',
         bundle_identifier='com.nanograph',
         info_plist=info_plist,
     )
