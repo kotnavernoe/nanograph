@@ -39,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         time: 0
     };
 
+    function updateDocumentTitle() {
+        const baseTitle = 'Nanograph';
+        if (manualModeBtn.classList.contains('active')) {
+            document.title = `${baseTitle} - Manual`;
+        } else {
+            const statName = statPickerBtn.textContent;
+            document.title = `${baseTitle} - ${statName}`;
+        }
+    }
+
     function initializeChart() {
         if (chart) chart.destroy();
         chart = new Chart(ctx, {
@@ -218,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (settings.mode === 'automatic') {
                 updateYAxis();
             }
+            updateDocumentTitle();
         } else {
             setMode('manual');
         }
@@ -268,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateYAxis();
         }
         saveSettings();
+        updateDocumentTitle();
     }
 
     manualModeBtn.addEventListener('click', () => setMode('manual'));
@@ -304,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statPickerBtn.classList.remove('active');
             updateYAxis();
             saveSettings();
+            updateDocumentTitle();
         }
     });
 
